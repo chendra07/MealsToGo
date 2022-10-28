@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  StatusBar,
-  Platform,
-} from "react-native";
+import { SafeAreaView, StatusBar } from "react-native";
 import { Searchbar } from "react-native-paper";
+import styled from "styled-components/native";
 
 //utils
 import { spacing } from "../../../utils/sizes";
@@ -15,30 +9,28 @@ import { spacing } from "../../../utils/sizes";
 //components:
 import { RestaurantInfo } from "../components/restaurant-info-card.component";
 
+const SafeArea = styled(SafeAreaView)`
+  flex: 1;
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+`;
+
+const SearchContainer = styled.View`
+  padding: ${spacing.md}px;
+`;
+
+const RestaurantListContainer = styled.View`
+  padding: ${spacing.md}px;
+`;
+
 export function RestaurantsScreen() {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.search}>
+    <SafeArea>
+      <SearchContainer>
         <Searchbar placeholder="search" />
-      </View>
-      <View style={styles.body}>
+      </SearchContainer>
+      <RestaurantListContainer>
         <RestaurantInfo />
-      </View>
-    </SafeAreaView>
+      </RestaurantListContainer>
+    </SafeArea>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-  search: {
-    padding: spacing.md,
-    justifyContent: "center",
-  },
-  body: {
-    flex: 1,
-    padding: spacing.md,
-  },
-});

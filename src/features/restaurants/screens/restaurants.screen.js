@@ -4,7 +4,6 @@ import { Searchbar } from "react-native-paper";
 import styled from "styled-components/native";
 
 //utils
-import { spacing } from "../../../utils/sizes";
 
 //components:
 import { RestaurantInfo } from "../components/restaurant-info-card.component";
@@ -15,11 +14,11 @@ const SafeArea = styled(SafeAreaView)`
 `;
 
 const SearchContainer = styled.View`
-  padding: ${spacing.md}px;
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 const RestaurantListContainer = styled.View`
-  padding: ${spacing.md}px;
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 export function RestaurantsScreen() {

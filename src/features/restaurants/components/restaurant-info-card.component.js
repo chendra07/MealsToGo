@@ -3,14 +3,16 @@ import { Card, Title } from "react-native-paper";
 import styled from "styled-components/native";
 
 //utils
-import { spacing } from "../../../utils/sizes";
 
 const RestaurantTitle = styled(Title)`
-  padding-top: ${spacing.md}px;
+  font-family: ${(props) => props.theme.fonts.body};
+  padding-top: ${(props) => props.theme.space[3]};
+  color: ${(props) => props.theme.colors.ui.primary};
 `;
 
 const RestaurantCard = styled(Card)`
-  padding: ${spacing.md}px;
+  padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
 export function RestaurantInfo({ restaurant = {} }) {
